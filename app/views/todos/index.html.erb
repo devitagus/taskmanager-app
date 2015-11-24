@@ -1,0 +1,23 @@
+
+<h1>Todos#index</h1>
+<p>Find me in app/views/todos/index.html.erb</p>
+
+<!-- create a link to the form to insert a new todo
+type rake routes in the terminal to see the paths for
+each method that will call the view</!-->
+<%= link_to 'Add Todo', new_todo_path %>
+
+<!-- if we don't have any task yet, then don't show the links to edit nor delete-->
+<% if @todos.nil? %>
+  <p>You have no Tasks. Why not add <%= link_to 'todo', new_todo_path %>?</p>
+<% else %>
+<!-- loop in todos array and display the task title and links passing the element-->
+  <% @todos.each do |element| %>
+    <div>
+      <p><%= "Todo: " + element.title %>
+      <%= link_to 'Edit', edit_todo_path(element) %>
+      <%= link_to 'Show', todo_path(element) %>
+      <%= link_to 'Delete', todo_path(element), method: :delete, data: { confirm: "Are you sure?" }%></p>
+    </div>
+  <% end %>
+<% end %>

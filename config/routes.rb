@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  # get 'todos/index'
+  # make the home page in the root
+  root to: 'todos#index'
+  resources :todos
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

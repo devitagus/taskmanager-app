@@ -1,0 +1,10 @@
+<!--Rails helper that creates the form-->
+<!-- the form action will lead to todos-path by default
+  todos-path is the route to the Index method / view
+  do $ rake routes to see the paths-->
+
+<%= form_for @todo do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.submit "Submit" %>
+<% end %>
